@@ -3,7 +3,7 @@ title: Post with Header Image
 tags: TeXt
 article_header:
   type: cover
-  image: /assets/images/foto1.jpg
+  image: /assets/images/IMG_5610 (1).jpg
 categories: [artículos]
 ---
 
