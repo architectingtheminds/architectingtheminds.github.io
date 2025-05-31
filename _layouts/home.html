@@ -1,43 +1,14 @@
----
-layout: articles
-titles:
-  # @start locale config
-  en      : &EN       Home
-  en-GB   : *EN
-  en-US   : *EN
-  en-CA   : *EN
-  en-AU   : *EN
-  zh-Hans : &ZH_HANS  主页
-  zh      : *ZH_HANS
-  zh-CN   : *ZH_HANS
-  zh-SG   : *ZH_HANS
-  zh-Hant : &ZH_HANT  主頁
-  zh-TW   : *ZH_HANT
-  zh-HK   : *ZH_HANT
-  ko      : &KO       홈
-  ko-KR   : *KO
-  fr      : &FR       Accueil
-  fr-BE   : *FR
-  fr-CA   : *FR
-  fr-CH   : *FR
-  fr-FR   : *FR
-  fr-LU   : *FR
-  tr      : &TR       Ana Sayfa
-  # @end locale config
-show_title: false
-articles:
-  data_source: paginator.posts
-  article_type: BlogPosting
-  show_cover: false
-  show_excerpt: true
-  show_readmore: true
-  show_info: true
----
-<div class="layout--home">
-  {%- include paginator.html -%}
+<div class="home">
+  {% for post in site.posts %}
+    <article class="featured-post" style="margin-bottom: 4rem;">
+      {% if post.image %}
+        <img src="{{ post.image }}" alt="{{ post.title }}" style="width: 100%; border-radius: 8px; margin-bottom: 1rem;" />
+      {% endif %}
+      <p style="text-transform: uppercase; font-size: 0.8rem; color: #a83232;">{{ post.categories[0] }}</p>
+      <h2 style="font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 0.5rem;">
+        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      </h2>
+      <p>{{ post.excerpt }}</p>
+    </article>
+  {% endfor %}
 </div>
-<script>
-  {%- include scripts/home.js -%}
-</script>
-
-{{ content }}
